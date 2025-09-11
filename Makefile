@@ -12,4 +12,4 @@ run:
 	docker run --rm -it --name $(CONTAINER) $(IMAGE):$(IMAGE_TAG) 
 
 dev:
-	docker run --rm -it --name $(CONTAINER) $(IMAGE):$(IMAGE_TAG) bash
+	docker run --rm -it --name $(CONTAINER) --mount type=bind,source=./,target=/usr/src/app $(IMAGE):$(IMAGE_TAG) bash
