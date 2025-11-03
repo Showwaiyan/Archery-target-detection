@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from detector.blur_detector import detect_blur
+from preprocessing.image_validator import detect_blur
 
 
 def test_detect_blur_sharp_image():
