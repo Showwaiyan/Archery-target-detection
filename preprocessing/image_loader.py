@@ -4,7 +4,7 @@ from cv2 import (
     imread,
     imshow,
     namedWindow,
-    waitkey,
+    waitKey,
     destroyAllWindows,
     IMREAD_COLOR,
     WINDOW_AUTOSIZE,
@@ -27,5 +27,5 @@ def show_image(image, name, size=WINDOW_AUTOSIZE):
 
     namedWindow(name, size)
     imshow(name, image)
-    waitkey(0)
+    waitKey(0)
     destroyAllWindows()
