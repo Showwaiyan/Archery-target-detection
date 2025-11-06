@@ -1,5 +1,14 @@
 # blur_detector/__init__.py
-from .image_validator import detect_blur
-from .image_loader import load_image
+from .image_validator import validate_blur, validate_brightness
+from .image_loader import load_image, show_image
+from .image_transformer import resize_image, change_color_channel, crop_image
 
-__all__ = ["detect_blur", "load_image"]
+__all__ = [
+    "validate_blur",
+    "validate_brightness",
+    "load_image",
+    "show_image",
+    "resize_image",
+    "change_color_channel",
+    "crop_image",
+]
