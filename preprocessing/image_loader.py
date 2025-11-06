@@ -6,13 +6,8 @@ from cv2 import (
     namedWindow,
     waitKey,
     destroyAllWindows,
-    cvtColor,
     IMREAD_COLOR,
     WINDOW_AUTOSIZE,
-    COLOR_RGB2BGR,
-    COLOR_BGR2RGB,
-    COLOR_BGR2GRAY,
-    COLOR_RGB2GRAY,
 )
 
 
@@ -34,11 +29,3 @@ def show_image(image, name, size=WINDOW_AUTOSIZE):
     imshow(name, image)
     waitKey(0)
     destroyAllWindows()
-
-
-def change_color_channel(image, channel):
-    if channel not in (COLOR_RGB2BGR, COLOR_BGR2RGB, COLOR_BGR2GRAY, COLOR_RGB2GRAY):
-        raise ValueError(f"Can convert to unkown Color Channel: {channel}")
-
-    result = cvtColor(image, channel)
-    return result
