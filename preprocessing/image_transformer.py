@@ -22,3 +22,17 @@ def change_color_channel(image, channel):
 
     result = cvtColor(image, channel)
     return result
+
+
+def crop_image(image, x, y, w, h):
+    image_height = len(image)
+    image_width = len(image[0])
+
+    if x < 0 or x > image_width:
+        raise ValueError(f"Invalid Dimension to crop: x:{x}, y:{y}, w:{w}, h:{h}")
+
+    if y < 0 or y > image_height:
+        raise ValueError(f"Invalid Dimension to crop: x:{x}, y:{y}, w:{w}, h:{h}")
+
+    result = image[y : y + h, x : x + w]
+    return result
