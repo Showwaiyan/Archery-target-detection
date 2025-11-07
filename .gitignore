@@ -1,5 +1,6 @@
-# personal ignore files
+# Personal ignore files
 TODO.md
+/data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
