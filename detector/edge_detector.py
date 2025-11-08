@@ -18,14 +18,14 @@ def auto_canny(img, k=1.0):
 
     # img = cv2.GaussianBlur(img, (3, 3), 0)
     img = cv2.medianBlur(img, 3)
-    return cv2.Canny(img, lower, upper)
+    return cv2.Canny(img, lower, upper), upper, lower
 
 
 # Testing
-# for i in range(1, 21):
+# for i in range(180, 191):
 #     img = cv2.imread(f"data/targets/{i}.jpeg", 0)
 #     # img = cv2.equalizeHist(img)
-#     edges = auto_canny(img, k=1)
-#     cv2.imshow("Canny", edges)
+#     edges, param1, param2 = auto_canny(img, k=1.3)
+#     cv2.imshow(f"{param1}-{param2}", edges)
 #     cv2.waitKey(0)
 #     cv2.destroyAllWindows()
