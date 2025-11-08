@@ -3,8 +3,8 @@ import numpy as np
 
 
 def auto_canny(img, k=1.0):
-    sigma = img.std()
-    mean = img.mean()
+    sigma = img.std()  # Finding low/high contrast
+    mean = img.mean()  # Finsing dark/bright image
 
     # thresholds from contrast
     lower = 0.66 * sigma
