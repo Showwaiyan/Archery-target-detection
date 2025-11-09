@@ -22,12 +22,9 @@ def auto_canny(img, k=1.0):
 
 
 def morphologic_edge_detection(image):
-    if len(image.shape) != 2:
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
 
-    gradient = cv2.morphologyEx(gray, cv2.MORPH_GRADIENT, kernel)
+    gradient = cv2.morphologyEx(image, cv2.MORPH_GRADIENT, kernel)
 
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
     enhanced = clahe.apply(gradient)
