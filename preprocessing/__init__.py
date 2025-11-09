@@ -1,7 +1,7 @@
-# blur_detector/__init__.py
 from .image_validator import validate_blur, validate_brightness, validate_contrast
 from .image_loader import load_image, show_image
 from .image_transformer import resize_image, change_color_channel, crop_image
+from .morphological_processor import morphologic_edge_detection, auto_canny
 
 __all__ = [
     "validate_blur",
@@ -12,4 +12,6 @@ __all__ = [
     "resize_image",
     "change_color_channel",
     "crop_image",
+    "morphologic_edge_detection",
+    "auto_canny",
 ]
