@@ -3,3 +3,5 @@ pillow
 opencv-python
 pytest
 matplotlib
+fastapi
+fastapi[standard]
