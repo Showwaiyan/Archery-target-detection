@@ -6,6 +6,6 @@ router_prefix = "/arrowStaging"
 router = APIRouter(tags=[tag])
 
 
-@router.post("/detect", tags=[tag])
-async def create_detection(file: UploadFile):
-    return await save_target_file(file)
+@router.post("/{archer_id}/detect", tags=[tag])
+async def create_detection(file: UploadFile, archer_id: int):
+    return await save_target_file(file, archer_id)
