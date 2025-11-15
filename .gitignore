@@ -1,6 +1,8 @@
 # Personal ignore files
 TODO.md
 /data
+/upload
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
