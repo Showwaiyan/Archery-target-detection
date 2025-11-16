@@ -5,3 +5,4 @@ pytest
 matplotlib
 fastapi
 fastapi[standard]
+inference-sdk
