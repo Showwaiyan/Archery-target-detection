@@ -21,7 +21,7 @@ async def save_target_file(file: UploadFile, range_id: int):
         buffer.write(await file.read())
 
     result = await get_detection_result(file_location)
-    target, scores = await unpack_detection_target(result)
+    target, scores = await unpack_detection_target(result, range_id)
 
     remove(file_location)
 
