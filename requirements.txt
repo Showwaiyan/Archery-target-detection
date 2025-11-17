@@ -2,3 +2,4 @@ pytest
 fastapi
 fastapi[standard]
 inference-sdk
+aiomysql
