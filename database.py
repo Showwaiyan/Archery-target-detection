@@ -21,6 +21,7 @@ async def init_pool():
 
 
 async def execute_query(sql: str):
+    global pool
     result = None
     async with pool.acquire() as conn:
         async with conn.cursor() as cursor:
