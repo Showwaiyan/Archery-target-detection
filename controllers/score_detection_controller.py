@@ -7,6 +7,7 @@ from os import getenv, makedirs, remove
 from services.score_detection_services import (
     get_detection_result,
     unpack_detection_target,
+    insert_an_ends,
 )
 
 load_dotenv()
@@ -38,3 +39,20 @@ async def detect_target_file(file: UploadFile, range_id: int):
 
     result = jsonable_encoder(scores)
     return JSONResponse(content=scores)
+
+
+async def insert_arrows_to_staging(ends_info):
+    success = await insert_an_ends(ends_info)
+
+    if not success:
+        raise HTTPException(
+            status_code=500,
+            detail="Sorry, We cannot update your arrows to staging area right now. Please try again.",
+        )
+
+    status = 201
+    message = "Ends is created, all arrows score are on staging area right now"
+    result = {"status": status, "message": message}
+
+    result = jsonable_encoder(result)
+    return JSONResponse(content=result)
