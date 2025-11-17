@@ -1,9 +1,24 @@
 from fastapi import FastAPI
 from database import init_pool
+from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+from os import getenv
 
 import routes
 
+load_dotenv()
+
 app = FastAPI()
+
+origins = [getenv("REACT_URL")]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.on_event("startup")
