@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from os import getenv
 
 from repositories.range_repository import get_total_arrows_per_end
+from repositories.arrow_staging_repository import insert_an_arrow_to_staging
 
 load_dotenv()
 
@@ -41,3 +42,33 @@ async def unpack_detection_target(predictions: object, range_id: int):
         scores = scores + needed_zeros
 
     return target, scores
+
+
+def validate_arrow(arrow):
+    arrowScore = 0
+    isX = 0
+    if arrow == "X":
+        arrowScore = 10
+        isX = 1
+    elif arrow == "M":
+        arrowScore = 0
+    else:
+        arrowScore = int(arrow)
+
+    return arrowScore, isX
+
+
+async def insert_an_ends(ends_info):
+    arrowScore = None
+    isX = None
+    for arrow in ends_info.arrows:
+        arrowScore, isX = validate_arrow(arrow)
+        await insert_an_arrow_to_staging(
+            ends_info.roundID,
+            ends_info.participationID,
+            ends_info.distance,
+            ends_info.endOrder,
+            arrowScore,
+            isX,
+        )
+    return True
