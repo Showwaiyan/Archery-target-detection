@@ -12,8 +12,7 @@ from services.score_detection_services import (
 load_dotenv()
 
 
-async def save_target_file(file: UploadFile, range_id: int):
-    # Create dir
+async def detect_target_file(file: UploadFile, range_id: int):
     UPLOAD_DIR = getenv("UPLOAD_DIR")
     makedirs(UPLOAD_DIR, exist_ok=True)
     file_location = f"{UPLOAD_DIR}/{range_id}.jpeg"
