@@ -29,4 +29,4 @@ RUN chown -R appuser:appgroup /usr/src/app
 USER appuser:appgroup
 
 # RUN python file
-CMD ["python","main.py"]
+CMD ["fastapi","run"]
