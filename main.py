@@ -10,7 +10,7 @@ load_dotenv()
 
 app = FastAPI()
 
-origins = [getenv("REACT_URL")]
+origins = [f"http://{getenv("REACT_URL")}"]
 
 app.add_middleware(
     CORSMiddleware,
