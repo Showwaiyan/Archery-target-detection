@@ -18,3 +18,13 @@ async def init_pool():
         minsize=1,
         maxsize=5,
     )
+
+
+async def execute_query(sql: str):
+    result = None
+    async with pool.acquire() as conn:
+        async with conn.cursor() as cursor:
+            await cursor.execute(sql)
+            result = await cursor.fetchall()
+
+    return result
