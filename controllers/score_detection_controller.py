@@ -12,11 +12,11 @@ from services.score_detection_services import (
 load_dotenv()
 
 
-async def save_target_file(file: UploadFile, archer_id: int):
+async def save_target_file(file: UploadFile, range_id: int):
     # Create dir
     UPLOAD_DIR = getenv("UPLOAD_DIR")
     makedirs(UPLOAD_DIR, exist_ok=True)
-    file_location = f"{UPLOAD_DIR}/{archer_id}.jpeg"
+    file_location = f"{UPLOAD_DIR}/{range_id}.jpeg"
     with open(file_location, "wb") as buffer:
         buffer.write(await file.read())
 
