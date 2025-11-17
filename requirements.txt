@@ -4,3 +4,4 @@ fastapi[standard]
 inference-sdk
 aiomysql
 cryptography
+pydantic
