@@ -9,7 +9,7 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-
 app.include_router(
-    routes.score_detection_router, prefix=routes.score_detection_route_prefix
+    routes.score_detection_router, prefix=f"/api/{
+        routes.score_detection_route_prefix}"
 )
