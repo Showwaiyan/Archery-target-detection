@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from database import create_pool
+from database import init_pool
 
 import routes
 
@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup():
-    app.state.pool = await create_pool()
+    await init_pool
 
 
 @app.get("/")
@@ -23,5 +23,6 @@ app.include_router(
 
 @app.on_event("shutdown")
 async def shutdown():
-    app.state.pool.close()
-    await app.state.pool.wait_closed()
+    from database import pool
+    pool.close()
+    await pool.wait_closed()

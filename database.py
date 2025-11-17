@@ -4,9 +4,12 @@ from os import getenv
 
 load_dotenv()
 
+pool = None
 
-async def create_pool():
-    return await aiomysql.create_pool(
+
+async def init_pool():
+    global pool
+    pool = await aiomysql.create_pool(
         host=getenv("DB_HOST"),
         user=getenv("DB_USER"),
         password=getenv("DB_PASSWORD"),
