@@ -28,7 +28,7 @@ async def unpack_detection_target(predictions: object, range_id: int):
 
     scores.sort(reverse=True)
 
-    total_arrows_per_end = get_total_arrows_per_end(range_id)
+    total_arrows_per_end = await get_total_arrows_per_end(range_id)
     if total_arrows_per_end is None:
         return None, None
 
