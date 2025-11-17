@@ -8,7 +8,7 @@ app = FastAPI()
 
 @app.on_event("startup")
 async def startup():
-    await init_pool
+    init_pool
 
 
 @app.get("/")

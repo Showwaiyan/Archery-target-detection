@@ -25,10 +25,17 @@ async def save_target_file(file: UploadFile, range_id: int):
 
     remove(file_location)
 
+    if target is None and scores is None:
+        raise HTTPException(
+            status_code=500,
+            detail="Sorry, We cannot find your current range information",
+        )
+
     if target is None:
         raise HTTPException(
             status_code=400,
             detail="Target is not detected, Please take a photo in other direction or different lighting",
         )
+
     result = jsonable_encoder(scores)
     return JSONResponse(content=scores)

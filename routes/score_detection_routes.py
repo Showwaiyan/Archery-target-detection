@@ -9,5 +9,3 @@ router = APIRouter(tags=[tag])
 @router.post("/{range_id}/detect", tags=[tag])
 async def create_detection(file: UploadFile, range_id: int):
     return await save_target_file(file, range_id)
-
-
