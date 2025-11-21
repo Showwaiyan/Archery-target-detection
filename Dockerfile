@@ -18,7 +18,7 @@ RUN pip install --upgrade pip && \
     pip config set global.retries 10
 
 # Create pip cache directory for better performance
-RUN mkdir -p /root/.cache/pip && \
+RUN mkdir -p /root/.cache/pip && 
 
 # Copy and install core dependencies first (cacheable layer)
 COPY requirements-core.txt .
