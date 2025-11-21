@@ -19,7 +19,6 @@ RUN pip install --upgrade pip && \
 
 # Create pip cache directory for better performance
 RUN mkdir -p /root/.cache/pip && \
-    chown -R appuser:appgroup /root/.cache
 
 # Copy and install core dependencies first (cacheable layer)
 COPY requirements-core.txt .
