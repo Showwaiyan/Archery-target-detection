@@ -9,9 +9,6 @@ RUN apt-get update && apt-get install -y \
     bash \
     && rm -rf /var/lib/apt/lists/*
 
-# Create non-root user
-RUN groupadd -r appgroup && useradd -r -g appgroup appuser
-
 # Set working directory
 WORKDIR /usr/src/app
 
@@ -34,10 +31,6 @@ RUN pip install --cache-dir /root/.cache/pip --no-cache-dir -r requirements-heav
 
 # Copy source code
 COPY . .
-
-# Set proper permissions
-RUN chown -R appuser:appgroup /usr/src/app
-USER appuser:appgroup
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
